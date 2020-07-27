@@ -1,0 +1,41 @@
+{
+    "name": "k00ni/todolo",
+    "description": "",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Konrad Abicht",
+            "email": "k.abicht@gmail.com"
+        }
+    ],
+    "bin": [
+        "bin/todolo"
+    ],
+    "require": {
+        "php": "^7.1 || ^8.0",
+        "ext-iconv": "*",
+        "symfony/console": "^4.4 || ^5.1",
+        "symfony/polyfill-php80": "^1.18"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^0.12.33",
+        "phpstan/phpstan-strict-rules": "^0.12.4",
+        "phpunit/phpunit": "^7 || ^8 || ^9"
+    },
+    "autoload": {
+        "psr-4": {
+            "Todolo\\": "src/Todolo/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\Todolo\\": "test/",
+            "Tests\\Todolo\\": "tests/"
+        }
+    },
+    "scripts": {
+        "phpstan": "vendor/bin/phpstan analyse -c phpstan.neon -vvv",
+        "phpunit": "vendor/bin/phpunit",
+        "phpunit-with-coverage": "vendor/bin/phpunit --coverage-clover gen/coverage/clover.xml"
+    }
+}

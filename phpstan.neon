@@ -1,0 +1,14 @@
+parameters:
+    bootstrapFiles:
+        - ./vendor/autoload.php
+
+    fileExtensions:
+        - php
+
+    level: max
+
+    paths:
+        - src
+
+    parallel:
+        maximumNumberOfProcesses: 5
