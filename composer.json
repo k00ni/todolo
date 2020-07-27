@@ -12,7 +12,7 @@
         "bin/todolo"
     ],
     "require": {
-        "php": "^7.1 || ^8.0",
+        "php": "^7.1",
         "ext-iconv": "*",
         "symfony/console": "^4.4 || ^5.1",
         "symfony/polyfill-php80": "^1.18"
