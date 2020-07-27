@@ -5,7 +5,7 @@ namespace Tests\Todolo\Unit;
 use Test\Todolo\TestCase;
 use Todolo\FileHelper;
 
-class TodoFinderTest extends TestCase
+class FileHelperTest extends TestCase
 {
     public function setUp(): void
     {
