@@ -47,15 +47,24 @@ class StringOutput implements OutputInterface
     {
     }
 
-    public function setDecorated(bool $decorated)
+    /**
+     * @param bool $decorated
+     */
+    public function setDecorated($decorated)
     {
     }
 
-    public function setFormatter(OutputFormatterInterface $formatter)
+    /**
+     * @param OutputFormatterInterface $formatter
+     */
+    public function setFormatter($formatter)
     {
     }
 
-    public function setVerbosity(int $level)
+    /**
+     * @param int $level
+     */
+    public function setVerbosity($level)
     {
     }
 
