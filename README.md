@@ -1,7 +1,6 @@
 # todolo
 
 [![Build Status](https://travis-ci.com/k00ni/todolo.svg?branch=master)](https://travis-ci.com/k00ni/todolo)
-
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/k00ni/todolo/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/k00ni/todolo/?branch=master)
 
 **Project Status:** *early development phase (pre-alpha)*
@@ -30,5 +29,5 @@ it may print something like the following on the terminal:
 ```
 Dir: src
      /Todolo/TodoFinder.php
-     - add me
+     - foobar
 ```
