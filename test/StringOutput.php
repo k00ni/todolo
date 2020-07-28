@@ -54,10 +54,7 @@ class StringOutput implements OutputInterface
     {
     }
 
-    /**
-     * @param OutputFormatterInterface $formatter
-     */
-    public function setFormatter($formatter)
+    public function setFormatter(OutputFormatterInterface $formatter)
     {
     }
 
