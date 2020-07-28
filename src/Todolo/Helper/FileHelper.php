@@ -1,8 +1,10 @@
 <?php
 
-namespace Todolo;
+namespace Todolo\Helper;
 
 use DirectoryIterator;
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
 
 class FileHelper
 {
@@ -13,7 +15,9 @@ class FileHelper
     {
         $result = [];
 
-        foreach (new DirectoryIterator($dir) as $file) {
+        $rii = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir));
+
+        foreach ($rii as $file) {
             if ($file->isFile() && str_contains($file->getFilename(), '.php')) {
                 $fullpath = $file->getPath().'/'.$file->getFilename();
 

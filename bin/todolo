@@ -5,10 +5,19 @@ require __DIR__.'/../vendor/autoload.php';
 
 use Symfony\Component\Console\Application;
 use Todolo\Command\Todolo;
+use Todolo\Helper\ConfigHelper;
+use Todolo\Helper\FileHelper;
+use Todolo\Helper\OutputHelper;
+use Todolo\TodoFinder;
 
 $application = new Application();
 
-$command = new Todolo();
+$configHelper = new ConfigHelper();
+$fileHelper = new FileHelper();
+$outputHelper = new OutputHelper();
+
+$todoFinder = new TodoFinder($fileHelper);
+$command = new Todolo($configHelper, $outputHelper, $todoFinder);
 
 $application->add($command);
 $application->setDefaultCommand($command->getName());

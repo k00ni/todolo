@@ -1,9 +1,9 @@
 <?php
 
-namespace Tests\Todolo\Unit;
+namespace Tests\Todolo\Integration;
 
 use Test\Todolo\TestCase;
-use Todolo\FileHelper;
+use Todolo\Helper\FileHelper;
 use Todolo\TodoFinder;
 
 class TodoFinderTest extends TestCase

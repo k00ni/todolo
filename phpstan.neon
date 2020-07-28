@@ -9,6 +9,7 @@ parameters:
 
     paths:
         - src
+        - tests
 
     parallel:
         maximumNumberOfProcesses: 5

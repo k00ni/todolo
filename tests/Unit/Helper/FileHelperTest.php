@@ -3,7 +3,7 @@
 namespace Tests\Todolo\Unit;
 
 use Test\Todolo\TestCase;
-use Todolo\FileHelper;
+use Todolo\Helper\FileHelper;
 
 class FileHelperTest extends TestCase
 {

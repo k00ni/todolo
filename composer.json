@@ -11,6 +11,8 @@
     "bin": [
         "bin/todolo"
     ],
+    "prefer-dist": true,
+    "prefer-stable": true,
     "require": {
         "php": "^7.1",
         "ext-iconv": "*",
@@ -19,7 +21,6 @@
     },
     "require-dev": {
         "phpstan/phpstan": "^0.12.33",
-        "phpstan/phpstan-strict-rules": "^0.12.4",
         "phpunit/phpunit": "^7 || ^8 || ^9"
     },
     "autoload": {

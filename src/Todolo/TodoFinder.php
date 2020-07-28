@@ -2,6 +2,8 @@
 
 namespace Todolo;
 
+use Todolo\Helper\FileHelper;
+
 class TodoFinder
 {
     /**
@@ -24,7 +26,7 @@ class TodoFinder
         /*
          * single line TODO
          */
-        preg_match_all('/TODO\:*(.*)$/mi', $fileContent, $matches);
+        preg_match_all('/\/\/\s*TODO\:*(.*)$/mi', $fileContent, $matches);
 
         if (isset($matches[1])) {
             foreach ($matches[1] as $match) {
