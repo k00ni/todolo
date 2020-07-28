@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Test\Todolo;
 
 use Symfony\Component\Console\Formatter\OutputFormatterInterface;
@@ -57,7 +59,7 @@ class StringOutput implements OutputInterface
     {
     }
 
-    public function write($message, bool $newline = false, int $options = 0)
+    public function write($message, $newline = false, $options = 0)
     {
         $this->messages .= $message;
 
@@ -66,7 +68,7 @@ class StringOutput implements OutputInterface
         }
     }
 
-    public function writeln($message, int $options = 0)
+    public function writeln($message, $options = 0)
     {
         $this->write($message, true);
     }
