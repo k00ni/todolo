@@ -34,14 +34,17 @@ class OutputHelper
         foreach ($todos as $dir => $entries) {
             $dir = (string) $dir;
             $dirIsShown = false;
+            $firstFileInDir = true;
 
             /*
              * if show_empty_dir_info is ON only show dir name if we have TODOs
              */
             if ($config['show_empty_dir'] && !$this->dirHasFilesWithTodos($todos, $dir)) {
+                $output->writeln('');
                 $output->writeln('> '.$dir);
                 $dirIsShown = true;
             } elseif ($this->dirHasFilesWithTodos($todos, $dir)) {
+                $output->writeln('');
                 $output->writeln('> '.$dir);
                 $dirIsShown = true;
             }
@@ -62,7 +65,13 @@ class OutputHelper
                         $output->writeln('     '.$file);
                     }
                 } else {
-                    $output->writeln('     '.$file);
+                    if (!$firstFileInDir) {
+                        $output->writeln('');
+                    } else {
+                        $firstFileInDir = false;
+                    }
+
+                    $output->writeln('     /'.$dir.$file);
                     foreach ($todoList as $todo) {
                         $output->writeln('     - '.$todo['message']);
                     }
