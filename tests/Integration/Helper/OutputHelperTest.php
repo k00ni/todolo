@@ -49,8 +49,9 @@ class OutputHelperTest extends TestCase
 
         self::assertEquals(
             '
+
 > dir1
-     /foo.php
+     /dir1/foo.php
      - Foo TODO
 
 ',
