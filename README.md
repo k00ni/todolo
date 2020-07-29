@@ -32,3 +32,69 @@ Dir: src
      /Todolo/TodoFinder.php
      - foobar
 ```
+
+## Config
+
+**Complete config example:**
+
+```php
+return [
+    'dirs_to_check' => [
+        'src',
+    ],
+    // show
+    'show_empty_dir' => false,
+    'show_files_with_no_todos' => false,
+    'show_no_files_info' => true,
+];
+```
+
+### dirs_to_check
+
+List all folders you wanna include in the TODO collection.
+
+Example:
+
+```php
+return [
+    'dirs_to_check' => [
+        'src',
+    ],
+];
+```
+
+### show_empty_dir
+
+If set to `true` it will show empty dirs in the output later on.
+
+Example:
+
+```php
+return [
+    'show_empty_dir' => true,
+];
+```
+
+### show_files_with_no_todos
+
+If set to `true` it will show files which have no TODOs inside.
+
+Example:
+
+```php
+return [
+    'show_files_with_no_todos' => true,
+];
+```
+
+### show_no_files_info
+
+If set to `true` it will show info if a dir has no files inside.
+
+Example:
+
+```php
+return [
+    'show_no_files_info' => true,
+];
+```
