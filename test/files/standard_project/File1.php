@@ -1,8 +1,18 @@
 <?php
 
+// honeypot for the TODO checks:
+// namespace Todolo\Test;
+
 class File1
 {
     // TODO: 1
     // TODO 2
-    // FIXME: make this more clear
+
+    /*
+     * FIXME: 3
+     */
+
+    /*
+     * @todo 4
+     */
 }

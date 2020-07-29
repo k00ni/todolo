@@ -25,13 +25,73 @@ class TodoFinder
     {
         $result = [];
 
-        /*
-         * single line TODO
-         */
-        preg_match_all('/\/\/\s*TODO\:*(.*)$/mi', $fileContent, $matches);
+        $result = array_merge(
+            $result,
+            $this->extractSingleLineAtTODOs($fileContent),
+            $this->extractSingleLineFIXMEs($fileContent),
+            $this->extractSingleLineTODOs($fileContent)
+        );
+
+        return $result;
+    }
+
+    /**
+     * Extracted single line @todo.
+     *
+     * @return array<int, array>
+     */
+    public function extractSingleLineAtTODOs(string $fileContent): array
+    {
+        $result = [];
+
+        preg_match_all('/\*\s+@todo\s*(.*)/mi', $fileContent, $matches);
 
         if (isset($matches[1])) {
             foreach ($matches[1] as $match) {
+                $result[] = [
+                    'message' => trim($match),
+                ];
+            }
+        }
+
+        return $result;
+    }
+
+    /**
+     * Extracted single line FIXME.
+     *
+     * @return array<int, array>
+     */
+    public function extractSingleLineFIXMEs(string $fileContent): array
+    {
+        $result = [];
+
+        preg_match_all('/[\/\/|\*]\s+FIXME[:]*\s*(.*)/mi', $fileContent, $matches);
+
+        if (isset($matches[1])) {
+            foreach ($matches[1] as $match) {
+                $result[] = [
+                    'message' => trim($match),
+                ];
+            }
+        }
+
+        return $result;
+    }
+
+    /**
+     * Extracted single line TODO.
+     *
+     * @return array<int, array>
+     */
+    public function extractSingleLineTODOs(string $fileContent): array
+    {
+        $result = [];
+
+        preg_match_all('/[\/\/|\*]\s+TODO[:]*\s*(.*)/mi', $fileContent, $matches1);
+
+        if (isset($matches1[1])) {
+            foreach ($matches1[1] as $match) {
                 $result[] = [
                     'message' => trim($match),
                 ];

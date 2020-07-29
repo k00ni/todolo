@@ -7,6 +7,10 @@ namespace Test\Todolo;
 use Symfony\Component\Console\Formatter\OutputFormatterInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+/**
+ * The purpose of this class is to collect output made in Command tests
+ * and to have a simple way to compare it.
+ */
 class StringOutput implements OutputInterface
 {
     /**
