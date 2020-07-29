@@ -21,6 +21,7 @@
         "symfony/polyfill-php80": "^1.18"
     },
     "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.16.3",
         "phpstan/phpstan": "^0.12.33",
         "phpunit/phpunit": "^7 || ^8 || ^9"
     },
@@ -36,8 +37,10 @@
         }
     },
     "scripts": {
+        "php-cs-fixer": "vendor/bin/php-cs-fixer fix",
         "phpstan": "vendor/bin/phpstan analyse -c phpstan.neon -vvv",
         "phpunit": "vendor/bin/phpunit",
-        "phpunit-with-coverage": "vendor/bin/phpunit --coverage-clover gen/coverage/clover.xml"
+        "phpunit-with-coverage": "vendor/bin/phpunit --coverage-clover gen/coverage/clover.xml",
+        "prepare": "composer php-cs-fixer && composer phpstan && composer phpunit"
     }
 }

@@ -33,7 +33,7 @@ class TodoFinder
         if (isset($matches[1])) {
             foreach ($matches[1] as $match) {
                 $result[] = [
-                    'message' => \trim($match),
+                    'message' => trim($match),
                 ];
             }
         }
@@ -56,9 +56,8 @@ class TodoFinder
             $fileContent = (string) file_get_contents($fullpath);
 
             // if file is not empty
-            if (0 < strlen($fileContent)) {
+            if (0 < \strlen($fileContent)) {
                 $result[$filePathInDir] = $this->extractAllTodos($fileContent);
-
             } else {
                 continue;
             }

@@ -4,10 +4,16 @@ namespace Tests\Todolo\Integration;
 
 use Test\Todolo\StringOutput;
 use Test\Todolo\TestCase;
+use Todolo\Helper\ConfigHelper;
 use Todolo\Helper\OutputHelper;
 
 class OutputHelperTest extends TestCase
 {
+    /**
+     * @var ConfigHelper
+     */
+    protected $configHelper;
+
     /**
      * @var StringOutput
      */
@@ -19,26 +25,31 @@ class OutputHelperTest extends TestCase
 
         $this->output = new StringOutput();
 
+        $this->configHelper = new ConfigHelper();
+
         $this->fixture = new OutputHelper();
     }
 
     public function testPrintTodos(): void
     {
+        $config = $this->configHelper->getStandardConfig();
+        $config['show_empty_dir'] = true;
+
         $todos = [
             'dir1' => [
                 '/foo.php' => [
                     [
                         'message' => 'Foo TODO',
-                    ]
-                ]
-            ]
+                    ],
+                ],
+            ],
         ];
 
-        $this->fixture->printTodos($this->output, $todos);
+        $this->fixture->printTodos($this->output, $todos, $config);
 
         self::assertEquals(
             '
-Dir: dir1
+> dir1
      /foo.php
      - Foo TODO
 

@@ -29,6 +29,7 @@ before_script:
   - travis_retry composer update --no-interaction --prefer-dist $COMPOSER_FLAGS
 
 script:
+  - if [ "$LINTER_RUN" = "run" ]; then composer php-cs-fixer ; fi;
   - if [ "$LINTER_RUN" = "run" ]; then composer phpstan ; fi;
   - if [ "$COVERAGE_RUN" = "run" ]; then composer phpunit-with-coverage ; fi;
   - if [ "$COVERAGE_RUN" != "run" ]; then composer phpunit ; fi;

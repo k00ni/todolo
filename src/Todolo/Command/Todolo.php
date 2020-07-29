@@ -51,10 +51,13 @@ class Todolo extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $currentDir = getcwd();
-        $config = $this->getStandardConfig();
+        $config = $this->configHelper->getStandardConfig();
 
         if (file_exists($currentDir.'/'.$this->configFilename)) {
-            $config = (array) require $currentDir.'/'.$this->configFilename;
+            $userConfig = (array) require $currentDir.'/'.$this->configFilename;
+
+            // user config overrides standard config
+            $config = array_merge($config, $userConfig);
         }
 
         $this->configHelper->validateConfig($config);
@@ -68,20 +71,8 @@ class Todolo extends Command
             $todos[$dir] = $this->todoFinder->getAllTodosForPHPFilesIn($dirPath);
         }
 
-        $this->outputHelper->printTodos($output, $todos);
+        $this->outputHelper->printTodos($output, $todos, $config);
 
         return 0;
-    }
-
-    /**
-     * @return array<string, array<int, string>>
-     */
-    protected function getStandardConfig(): array
-    {
-        return [
-            'dirs_to_check' => [
-                'src',
-            ],
-        ];
     }
 }
