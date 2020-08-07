@@ -28,9 +28,18 @@ in the root folder of your project. If files in your `src` folder contain TODO's
 it may print something like the following on the terminal:
 
 ```
-Dir: src
-     /Todolo/TodoFinder.php
-     - foobar
+-----------------------------------------------------
+tests/Integration/TodoFinderTest.php
+-----------------------------------------------------
+- TODO 1
+- FIXME 2
+- Foobar
+
+-----------------------------------------------------
+tests/Integration/Helper/OutputHelperTest.php
+-----------------------------------------------------
+No TODOs found.
+-----------------------------------------------------
 ```
 
 ## Config
