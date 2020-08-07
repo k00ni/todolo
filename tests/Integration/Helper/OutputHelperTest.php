@@ -49,10 +49,10 @@ class OutputHelperTest extends TestCase
 
         self::assertEquals(
             '
-
-> dir1
-     /dir1/foo.php
-     - Foo TODO
+-----------------------------------------------------
+<info>dir1</info>/foo.php
+-----------------------------------------------------
+- Foo TODO
 
 ',
             $this->output->getMessages()

@@ -30,31 +30,31 @@ class OutputHelper
      */
     public function printTodos(OutputInterface $output, array $todos, array $config): void
     {
-        $output->writeln('');
         foreach ($todos as $dir => $entries) {
             $dir = (string) $dir;
-            $dirIsShown = false;
+            $showDir = false;
             $firstFileInDir = true;
 
             /*
              * if show_empty_dir_info is ON only show dir name if we have TODOs
              */
             if ($config['show_empty_dir'] && !$this->dirHasFilesWithTodos($todos, $dir)) {
-                $output->writeln('');
-                $output->writeln('> '.$dir);
-                $dirIsShown = true;
+                $showDir = true;
             } elseif ($this->dirHasFilesWithTodos($todos, $dir)) {
-                $output->writeln('');
-                $output->writeln('> '.$dir);
-                $dirIsShown = true;
+                $showDir = true;
             }
 
             if (0 == \count($entries)) {
                 /*
                  * show_no_files_info
                  */
-                if ($config['show_no_files_info'] && $dirIsShown) {
-                    $output->writeln('      <fg=cyan>No files found.</>');
+                if ($config['show_no_files_info'] && $showDir) {
+                    $output->writeln('');
+                    $output->writeln('-----------------------------------------------------');
+                    $output->writeln('<info>'.$dir.'</info>');
+                    $output->writeln('-----------------------------------------------------');
+                    $output->writeln('<comment>No TODOs found.</comment>');
+                    $output->writeln('-----------------------------------------------------');
                 }
                 continue;
             }
@@ -62,7 +62,12 @@ class OutputHelper
             foreach ($entries as $file => $todoList) {
                 if (0 == \count($todoList)) {
                     if ($config['show_files_with_no_todos']) {
-                        $output->writeln('     '.$file);
+                        $output->writeln('');
+                        $output->writeln('-----------------------------------------------------');
+                        $output->writeln('<info>'.$dir.'</info>'.$file);
+                        $output->writeln('-----------------------------------------------------');
+                        $output->writeln('<comment>No TODOs found.</comment>');
+                        $output->writeln('-----------------------------------------------------');
                     }
                 } else {
                     if (!$firstFileInDir) {
@@ -71,9 +76,12 @@ class OutputHelper
                         $firstFileInDir = false;
                     }
 
-                    $output->writeln('     /'.$dir.$file);
+                    $output->writeln('');
+                    $output->writeln('-----------------------------------------------------');
+                    $output->writeln('<info>'.$dir.'</info>'.$file);
+                    $output->writeln('-----------------------------------------------------');
                     foreach ($todoList as $todo) {
-                        $output->writeln('     - '.$todo['message']);
+                        $output->writeln('- '.$todo['message']);
                     }
                 }
             }
