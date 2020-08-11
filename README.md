@@ -4,8 +4,6 @@
 [![Code Coverage](https://scrutinizer-ci.com/g/k00ni/todolo/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/k00ni/todolo/?branch=master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/k00ni/todolo/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/k00ni/todolo/?branch=master)
 
-**Project Status:** *early development phase (pre-alpha)*
-
 ## About
 
 Todolo helps you to keep track of TODO, FIXME etc. all over your files.
