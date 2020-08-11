@@ -17,7 +17,7 @@ Please install `k00ni/todolo` with composer.
 
 Run
 
-> php bin/todolo
+> vendor/bin/todolo
 
 in the root folder of your project. If files in your `src` folder contain TODO's like
 
