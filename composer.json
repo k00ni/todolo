@@ -1,6 +1,6 @@
 {
     "name": "k00ni/todolo",
-    "description": "It helps to keep track of TODOs all over your files by listing them on the terminal.",
+    "description": "Keep track of TODOs all over your files by listing them on the terminal.",
     "license": "MIT",
     "type": "library",
     "authors": [
