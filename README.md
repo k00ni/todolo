@@ -9,7 +9,7 @@
 Todolo helps you to keep track of TODO, FIXME etc. all over your files.
 It shows a list of files with all related TODO messages on the terminal.
 
-We are following semantic versioning (https://semver.org/), but until we reach 1.0.0, breaking changes are possible. Upgrade introductions will be described in an UPGRADE file.
+We are following semantic versioning (https://semver.org/) but until we reach 1.0.0 breaking changes are possible. Upgrade introductions will be described in an UPGRADE file.
 
 ## Installation
 
